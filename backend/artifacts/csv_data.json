@@ -1,0 +1,381 @@
+{
+  "history": [
+    {
+      "date": "2003",
+      "ph": 7.3,
+      "dissolvedOxygen": 7.19,
+      "bod": 8.85,
+      "conductivity": 6.5,
+      "nitrate": 0.49,
+      "fecalColiform": 0.4,
+      "totalColiform": 550.0
+    },
+    {
+      "date": "2004",
+      "ph": 7.3,
+      "dissolvedOxygen": 7.65,
+      "bod": 2.55,
+      "conductivity": 6.5,
+      "nitrate": 2.19,
+      "fecalColiform": 2.2,
+      "totalColiform": 5426.0
+    },
+    {
+      "date": "2005",
+      "ph": 7.24,
+      "dissolvedOxygen": 6.5,
+      "bod": 11.93,
+      "conductivity": 1597.9,
+      "nitrate": 1.26,
+      "fecalColiform": 198.5,
+      "totalColiform": 378.0
+    },
+    {
+      "date": "2006",
+      "ph": 7.27,
+      "dissolvedOxygen": 6.4,
+      "bod": 12.97,
+      "conductivity": 1576.5,
+      "nitrate": 1.9,
+      "fecalColiform": 278.0,
+      "totalColiform": 583.0
+    },
+    {
+      "date": "2007",
+      "ph": 7.22,
+      "dissolvedOxygen": 6.35,
+      "bod": 8.3,
+      "conductivity": 1919.8,
+      "nitrate": 1.26,
+      "fecalColiform": 345.5,
+      "totalColiform": 718.0
+    },
+    {
+      "date": "2008",
+      "ph": 7.11,
+      "dissolvedOxygen": 6.16,
+      "bod": 5.63,
+      "conductivity": 1361.6,
+      "nitrate": 1.49,
+      "fecalColiform": 321.0,
+      "totalColiform": 809.0
+    },
+    {
+      "date": "2009",
+      "ph": 7.2,
+      "dissolvedOxygen": 6.31,
+      "bod": 6.53,
+      "conductivity": 3192.2,
+      "nitrate": 2.49,
+      "fecalColiform": 234.5,
+      "totalColiform": 544.0
+    },
+    {
+      "date": "2010",
+      "ph": 7.2,
+      "dissolvedOxygen": 6.35,
+      "bod": 7.67,
+      "conductivity": 1957.3,
+      "nitrate": 1.7,
+      "fecalColiform": 225.0,
+      "totalColiform": 379.0
+    },
+    {
+      "date": "2011",
+      "ph": 7.3,
+      "dissolvedOxygen": 6.23,
+      "bod": 6.46,
+      "conductivity": 2351.4,
+      "nitrate": 1.53,
+      "fecalColiform": 236.0,
+      "totalColiform": 309.5
+    },
+    {
+      "date": "2012",
+      "ph": 7.3,
+      "dissolvedOxygen": 6.63,
+      "bod": 5.47,
+      "conductivity": 1401.1,
+      "nitrate": 1.56,
+      "fecalColiform": 224.0,
+      "totalColiform": 336.0
+    },
+    {
+      "date": "2013",
+      "ph": 7.19,
+      "dissolvedOxygen": 6.31,
+      "bod": 5.2,
+      "conductivity": 1564.5,
+      "nitrate": 1.73,
+      "fecalColiform": 192.5,
+      "totalColiform": 435.0
+    },
+    {
+      "date": "2014",
+      "ph": 7.22,
+      "dissolvedOxygen": 6.25,
+      "bod": 5.29,
+      "conductivity": 1812.8,
+      "nitrate": 1.52,
+      "fecalColiform": 165.0,
+      "totalColiform": 445.0
+    }
+  ],
+  "overview": {
+    "totalSamples": 1991,
+    "uniqueStations": 666,
+    "uniqueStates": 203,
+    "yearsRange": "2003\u20132014",
+    "qualityCounts": {
+      "Good": 734,
+      "Moderate": 1047,
+      "Poor": 210
+    },
+    "donut": [
+      {
+        "name": "Good",
+        "value": 734
+      },
+      {
+        "name": "Moderate",
+        "value": 1047
+      },
+      {
+        "name": "Poor",
+        "value": 210
+      }
+    ],
+    "measurements": [
+      {
+        "id": "M-3000",
+        "sourceId": "WS-1643",
+        "source": "Nagavalli At Rayagada D/S, (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.2,
+        "bod": 2.1,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3001",
+        "sourceId": "WS-1685",
+        "source": "Arasalar River Karaikal Re (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 8.0,
+        "bod": 9.0,
+        "quality": "Moderate",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3002",
+        "sourceId": "WS-1717",
+        "source": "Kodra Dam, Mount Abu, Raja (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.6,
+        "bod": 1.9,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3003",
+        "sourceId": "WS-1159",
+        "source": "Tambiraparani At Bdg.Nr. M (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.2,
+        "bod": 1.3,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3004",
+        "sourceId": "WS-1160",
+        "source": "Tambiraparani At Cheranmad (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.3,
+        "bod": 1.5,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3005",
+        "sourceId": "WS-1161",
+        "source": "Tambiraparani At Tirunelve (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.1,
+        "bod": 2.3,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3006",
+        "sourceId": "WS-1162",
+        "source": "Tambiraparani At Murappana (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.5,
+        "bod": 1.2,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3007",
+        "sourceId": "WS-1328",
+        "source": "Tambiraparani At Pappankul (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 6.9,
+        "bod": 2.0,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3008",
+        "sourceId": "WS-1329",
+        "source": "Tambiraparani At Rail Bdg. (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.0,
+        "bod": 1.4,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3009",
+        "sourceId": "WS-1330",
+        "source": "Tambiraparani At Arumugane (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.9,
+        "bod": 2.7,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3010",
+        "sourceId": "WS-1450",
+        "source": "Palar At Vaniyambadi Water (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.5,
+        "bod": 2.6,
+        "quality": "Good",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3011",
+        "sourceId": "WS-1403",
+        "source": "Gumti At U/S South Tripura (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.6,
+        "bod": 1.2,
+        "quality": "Moderate",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3012",
+        "sourceId": "WS-1404",
+        "source": "Gumti At D/S South Tripura (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.7,
+        "bod": 1.3,
+        "quality": "Moderate",
+        "model": "XGBoost",
+        "confidence": 0.96
+      },
+      {
+        "id": "M-3013",
+        "sourceId": "WS-1726",
+        "source": "Chandrapur, Agartala D/S O (Nan)",
+        "timestamp": "Year 2003",
+        "ph": 7.3,
+        "dissolvedOxygen": 7.6,
+        "bod": 1.1,
+        "quality": "Moderate",
+        "model": "XGBoost",
+        "confidence": 0.96
+      }
+    ],
+    "potability": {
+      "total": 3276,
+      "potable": 1278,
+      "nonPotable": 1998,
+      "potablePercent": 39.0,
+      "avgPh": 7.08,
+      "avgHardness": 196.4,
+      "avgTurbidity": 3.97,
+      "avgSolids": 22014.0
+    }
+  },
+  "featureImportance": [
+    {
+      "feature": "Fecal Coliform",
+      "xgboost": 0.319,
+      "randomForest": 0.251
+    },
+    {
+      "feature": "Total Coliform",
+      "xgboost": 0.174,
+      "randomForest": 0.23
+    },
+    {
+      "feature": "BOD",
+      "xgboost": 0.153,
+      "randomForest": 0.142
+    },
+    {
+      "feature": "Dissolved Oxygen",
+      "xgboost": 0.123,
+      "randomForest": 0.142
+    },
+    {
+      "feature": "Nitrate + Nitrite",
+      "xgboost": 0.073,
+      "randomForest": 0.085
+    },
+    {
+      "feature": "Conductivity",
+      "xgboost": 0.066,
+      "randomForest": 0.074
+    },
+    {
+      "feature": "pH",
+      "xgboost": 0.059,
+      "randomForest": 0.043
+    },
+    {
+      "feature": "Temperature",
+      "xgboost": 0.033,
+      "randomForest": 0.034
+    }
+  ],
+  "potability": {
+    "total": 3276,
+    "potable": 1278,
+    "nonPotable": 1998,
+    "potablePercent": 39.0,
+    "avgPh": 7.08,
+    "avgHardness": 196.4,
+    "avgTurbidity": 3.97,
+    "avgSolids": 22014.0
+  }
+}

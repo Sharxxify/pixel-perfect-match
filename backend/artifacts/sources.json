@@ -1,0 +1,338 @@
+[
+  {
+    "id": "WS-101",
+    "name": "Achenkoil At Chennithula",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 0.99,
+    "lat": 10.3505,
+    "lon": 75.7711,
+    "lastUpdated": "1 h ago",
+    "parameters": {
+      "temperature": 26.4,
+      "dissolvedOxygen": 6.6,
+      "ph": 7.0,
+      "conductivity": 68.0,
+      "bod": 1.0,
+      "nitrate": 0.5,
+      "fecalColiform": 249.0,
+      "totalColiform": 582.0
+    }
+  },
+  {
+    "id": "WS-102",
+    "name": "Achenkoil At Chennithula",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 17.555,
+    "lon": 78.7167,
+    "lastUpdated": "2 h ago",
+    "parameters": {
+      "temperature": 28.1,
+      "dissolvedOxygen": 5.4,
+      "ph": 6.7,
+      "conductivity": 100.0,
+      "bod": 0.9,
+      "nitrate": 0.4,
+      "fecalColiform": 463.0,
+      "totalColiform": 810.0
+    }
+  },
+  {
+    "id": "WS-103",
+    "name": "Achenkoil At Chennithula, Kerala",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 0.99,
+    "lat": 10.6905,
+    "lon": 76.2311,
+    "lastUpdated": "3 h ago",
+    "parameters": {
+      "temperature": 24.8,
+      "dissolvedOxygen": 5.9,
+      "ph": 7.2,
+      "conductivity": 81.0,
+      "bod": 1.5,
+      "nitrate": 0.7,
+      "fecalColiform": 274.0,
+      "totalColiform": 614.0
+    }
+  },
+  {
+    "id": "WS-104",
+    "name": "Achenkoil At Chennithula, Kerala",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 18.895,
+    "lon": 80.1767,
+    "lastUpdated": "4 h ago",
+    "parameters": {
+      "temperature": 26.4,
+      "dissolvedOxygen": 5.9,
+      "ph": 6.6,
+      "conductivity": 54.0,
+      "bod": 0.7,
+      "nitrate": 0.5,
+      "fecalColiform": 1250.0,
+      "totalColiform": 2833.0
+    }
+  },
+  {
+    "id": "WS-105",
+    "name": "Achenkoil At Kallarakadavu, Pathanamthit",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 0.99,
+    "lat": 11.0305,
+    "lon": 76.6911,
+    "lastUpdated": "1 h ago",
+    "parameters": {
+      "temperature": 25.7,
+      "dissolvedOxygen": 6.6,
+      "ph": 7.3,
+      "conductivity": 69.0,
+      "bod": 1.3,
+      "nitrate": 0.6,
+      "fecalColiform": 248.0,
+      "totalColiform": 541.0
+    }
+  },
+  {
+    "id": "WS-106",
+    "name": "Achenkoil At Pandalam (Near Ayyappa Temp",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Good",
+    "confidence": 0.72,
+    "lat": 11.2005,
+    "lon": 75.9211,
+    "lastUpdated": "2 h ago",
+    "parameters": {
+      "temperature": 24.8,
+      "dissolvedOxygen": 6.6,
+      "ph": 7.4,
+      "conductivity": 79.0,
+      "bod": 1.5,
+      "nitrate": 0.8,
+      "fecalColiform": 194.0,
+      "totalColiform": 494.0
+    }
+  },
+  {
+    "id": "WS-107",
+    "name": "Achenkoil At Pandalam (Near Ayyappa Temp",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 10.3705,
+    "lon": 76.1511,
+    "lastUpdated": "3 h ago",
+    "parameters": {
+      "temperature": 26.0,
+      "dissolvedOxygen": 6.2,
+      "ph": 7.3,
+      "conductivity": 66.0,
+      "bod": 0.8,
+      "nitrate": 0.6,
+      "fecalColiform": 303.0,
+      "totalColiform": 609.0
+    }
+  },
+  {
+    "id": "WS-108",
+    "name": "Achenkoil At Thumpamon",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 10.5405,
+    "lon": 76.3811,
+    "lastUpdated": "4 h ago",
+    "parameters": {
+      "temperature": 26.3,
+      "dissolvedOxygen": 7.0,
+      "ph": 7.1,
+      "conductivity": 76.0,
+      "bod": 0.7,
+      "nitrate": 0.4,
+      "fecalColiform": 278.0,
+      "totalColiform": 639.0
+    }
+  },
+  {
+    "id": "WS-109",
+    "name": "Achenkoil At Thumpamon",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 18.745,
+    "lon": 78.8267,
+    "lastUpdated": "1 h ago",
+    "parameters": {
+      "temperature": 27.6,
+      "dissolvedOxygen": 6.6,
+      "ph": 6.9,
+      "conductivity": 57.0,
+      "bod": 0.9,
+      "nitrate": 0.4,
+      "fecalColiform": 319.0,
+      "totalColiform": 650.0
+    }
+  },
+  {
+    "id": "WS-110",
+    "name": "Achenkoil At Thumpamon, Kerala",
+    "location": "Kerala, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 0.98,
+    "lat": 10.8805,
+    "lon": 75.8411,
+    "lastUpdated": "2 h ago",
+    "parameters": {
+      "temperature": 24.6,
+      "dissolvedOxygen": 6.6,
+      "ph": 7.4,
+      "conductivity": 80.0,
+      "bod": 1.5,
+      "nitrate": 0.8,
+      "fecalColiform": 191.0,
+      "totalColiform": 604.0
+    }
+  },
+  {
+    "id": "WS-111",
+    "name": "Achenkoil At Thumpamon, Kerala",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 17.585,
+    "lon": 79.2867,
+    "lastUpdated": "3 h ago",
+    "parameters": {
+      "temperature": 26.0,
+      "dissolvedOxygen": 6.7,
+      "ph": 6.6,
+      "conductivity": 46.0,
+      "bod": 0.6,
+      "nitrate": 0.4,
+      "fecalColiform": 1033.0,
+      "totalColiform": 2171.0
+    }
+  },
+  {
+    "id": "WS-112",
+    "name": "Amaravila",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 18.255,
+    "lon": 80.0167,
+    "lastUpdated": "4 h ago",
+    "parameters": {
+      "temperature": 26.6,
+      "dissolvedOxygen": 7.0,
+      "ph": 6.9,
+      "conductivity": 66.0,
+      "bod": 0.7,
+      "nitrate": 0.5,
+      "fecalColiform": 465.0,
+      "totalColiform": 900.0
+    }
+  },
+  {
+    "id": "WS-113",
+    "name": "Amaravila, Kerala",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 1.0,
+    "lat": 17.925,
+    "lon": 78.7467,
+    "lastUpdated": "1 h ago",
+    "parameters": {
+      "temperature": 27.0,
+      "dissolvedOxygen": 6.5,
+      "ph": 6.9,
+      "conductivity": 80.0,
+      "bod": 0.9,
+      "nitrate": 0.8,
+      "fecalColiform": 850.0,
+      "totalColiform": 1475.0
+    }
+  },
+  {
+    "id": "WS-114",
+    "name": "Amba At D/S Of Waken Bdg U/S Of Js Petro",
+    "location": "Nan, IN",
+    "type": "River",
+    "quality": "Moderate",
+    "confidence": 0.99,
+    "lat": 18.595,
+    "lon": 79.4767,
+    "lastUpdated": "2 h ago",
+    "parameters": {
+      "temperature": 28.7,
+      "dissolvedOxygen": 6.8,
+      "ph": 7.9,
+      "conductivity": 119.0,
+      "bod": 3.5,
+      "nitrate": 0.6,
+      "fecalColiform": 286.0,
+      "totalColiform": 517.0
+    }
+  },
+  {
+    "id": "WS-115",
+    "name": "Amba At D/S Of Waken Bridgenanu/S Of Js ",
+    "location": "Maharashtra, IN",
+    "type": "River",
+    "quality": "Good",
+    "confidence": 0.99,
+    "lat": 19.6315,
+    "lon": 75.4339,
+    "lastUpdated": "3 h ago",
+    "parameters": {
+      "temperature": 29.0,
+      "dissolvedOxygen": 6.9,
+      "ph": 7.7,
+      "conductivity": 99.0,
+      "bod": 3.3,
+      "nitrate": 0.6,
+      "fecalColiform": 53.0,
+      "totalColiform": 123.0
+    }
+  },
+  {
+    "id": "WS-116",
+    "name": "Amba River At D/S Of Waken Bridgenanu/S ",
+    "location": "Maharashtra, IN",
+    "type": "River",
+    "quality": "Good",
+    "confidence": 0.99,
+    "lat": 19.8015,
+    "lon": 75.6639,
+    "lastUpdated": "4 h ago",
+    "parameters": {
+      "temperature": 28.2,
+      "dissolvedOxygen": 7.1,
+      "ph": 7.9,
+      "conductivity": 108.0,
+      "bod": 3.3,
+      "nitrate": 0.4,
+      "fecalColiform": 65.0,
+      "totalColiform": 137.0
+    }
+  }
+]

@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
@@ -5,6 +6,7 @@ import { MapPin } from "lucide-react";
 import { PageHeader } from "@/components/aqua/AppShell";
 import { QualityBadge, SectionCard } from "@/components/aqua/quality";
 import { mockWaterSources, type QualityClass } from "@/lib/mock-data";
+import { getWaterSources } from "@/services/api";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/sources")({
@@ -30,7 +32,14 @@ const FILTERS = ["All", "Good", "Moderate", "Poor"] as const;
 
 function SourcesPage() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
-  const list = mockWaterSources.filter((s) => filter === "All" || s.quality === filter);
+  const { data: sourcesRes } = useQuery({
+    queryKey: ["water-sources"],
+    queryFn: getWaterSources,
+    staleTime: 30_000,
+  });
+
+  const allSources = sourcesRes?.data ?? mockWaterSources;
+  const list = allSources.filter((s) => filter === "All" || s.quality === filter);
 
   return (
     <>
@@ -54,7 +63,7 @@ function SourcesPage() {
             {f}
             {f !== "All" && (
               <span className="ml-1.5 opacity-70">
-                {mockWaterSources.filter((s) => s.quality === (f as QualityClass)).length}
+                {allSources.filter((s) => s.quality === (f as QualityClass)).length}
               </span>
             )}
           </button>

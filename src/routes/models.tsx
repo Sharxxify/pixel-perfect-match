@@ -10,10 +10,12 @@ import {
   YAxis,
 } from "recharts";
 
+import { useQuery } from "@tanstack/react-query";
 import { PageHeader } from "@/components/aqua/AppShell";
 import { SectionCard } from "@/components/aqua/quality";
 import { chartTooltipStyle } from "@/lib/chart-style";
 import { mockModels, mockTrainingCurve, type ModelMetrics } from "@/lib/mock-data";
+import { getModels } from "@/services/api";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/models")({
@@ -38,15 +40,28 @@ export const Route = createFileRoute("/models")({
 const CLASSES = ["Good", "Moderate", "Poor"] as const;
 
 function ModelsPage() {
+  const { data: modelsRes } = useQuery({
+    queryKey: ["models"],
+    queryFn: getModels,
+    staleTime: 30_000,
+  });
+
+  const models = modelsRes?.data ?? mockModels;
+  const isBackend = modelsRes?.source === "backend";
+
   return (
     <>
       <PageHeader
         title="Model Performance"
-        description="Evaluation on a held-out 20% split of 18,420 labelled samples."
+        description={
+          isBackend
+            ? "Trained on CPCB Water Quality data from Jupyter notebooks (XGBoost, Random Forest, Decision Tree, Logistic Regression)."
+            : "Evaluation on a held-out 20% split of labelled samples."
+        }
       />
 
       <div className="grid gap-4 lg:grid-cols-2">
-        {mockModels.map((m) => (
+        {models.map((m) => (
           <ModelCard key={m.name} model={m} />
         ))}
       </div>

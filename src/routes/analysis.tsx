@@ -96,7 +96,7 @@ function AnalysisPage() {
         }
       />
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
         <SectionCard
           title="Sample parameters"
           description="Values are validated against CPCB / WHO reference ranges"
@@ -113,29 +113,70 @@ function AnalysisPage() {
             ))}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {PARAMETER_SPECS.map((spec) => (
-              <div key={spec.key}>
-                <label
-                  htmlFor={spec.key}
-                  className="flex items-baseline justify-between gap-2 text-xs font-medium"
+          <div className="grid gap-3 sm:grid-cols-2">
+            {PARAMETER_SPECS.map((spec) => {
+              const currentVal = params[spec.key];
+              const isIdeal =
+                currentVal >= spec.ideal[0] && currentVal <= spec.ideal[1];
+              return (
+                <div
+                  key={spec.key}
+                  className="rounded-xl border border-border/80 bg-surface/50 p-3 transition-colors hover:border-primary/40"
                 >
-                  <span>{spec.label}</span>
-                  {spec.unit && <span className="text-muted-foreground">{spec.unit}</span>}
-                </label>
-                <input
-                  id={spec.key}
-                  type="number"
-                  step={spec.step}
-                  min={spec.min}
-                  max={spec.max}
-                  value={params[spec.key]}
-                  onChange={(e) => update(spec.key, e.target.value)}
-                  className="mt-1.5 w-full rounded-lg border border-input bg-background/60 px-3 py-2 font-mono text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30"
-                />
-                <p className="mt-1 text-[11px] text-muted-foreground">{spec.hint}</p>
-              </div>
-            ))}
+                  <div className="flex items-center justify-between gap-2">
+                    <label
+                      htmlFor={spec.key}
+                      className="truncate text-xs font-semibold text-foreground"
+                    >
+                      {spec.label}
+                      {spec.unit && (
+                        <span className="ml-1 text-[11px] font-normal text-muted-foreground">
+                          ({spec.unit})
+                        </span>
+                      )}
+                    </label>
+                    <input
+                      id={`${spec.key}-num`}
+                      type="number"
+                      step={spec.step}
+                      min={spec.min}
+                      max={spec.max}
+                      value={currentVal}
+                      onChange={(e) => update(spec.key, e.target.value)}
+                      className="h-7 w-20 rounded-md border border-input bg-background/80 px-2 text-right font-mono text-xs font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-ring"
+                    />
+                  </div>
+
+                  <div className="mt-2.5 flex items-center gap-2">
+                    <input
+                      id={spec.key}
+                      type="range"
+                      step={spec.step}
+                      min={spec.min}
+                      max={spec.max}
+                      value={currentVal}
+                      onChange={(e) => update(spec.key, e.target.value)}
+                      className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-surface-2 accent-primary transition-all focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="mt-1.5 flex items-center justify-between text-[10px] text-muted-foreground">
+                    <span className="font-mono">{spec.min}</span>
+                    <span
+                      className={cn(
+                        "rounded px-1.5 py-0.5 font-mono text-[10px]",
+                        isIdeal
+                          ? "bg-good/15 text-good font-medium"
+                          : "bg-muted/70 text-muted-foreground",
+                      )}
+                    >
+                      Ideal: {spec.ideal[0]}–{spec.ideal[1]} {spec.unit}
+                    </span>
+                    <span className="font-mono">{spec.max}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <button

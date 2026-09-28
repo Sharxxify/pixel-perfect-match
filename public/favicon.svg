@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#0b1728" stroke="#38bdf8" stroke-width="2" />
+  <!-- Water Droplet -->
+  <path d="M32 10 C32 10, 48 30, 48 40 C48 48.8 40.8 56 32 56 C23.2 56, 16 48.8, 16 40 C16 30, 32 10, 32 10 Z" fill="url(#waterGrad)" />
+  <!-- Inner Highlight Wave -->
+  <path d="M24 38 C28 42, 36 34, 40 38 C40 44, 36 48, 32 48 C28 48, 24 44, 24 38 Z" fill="url(#waveGrad)" />
+  <circle cx="27" cy="28" r="3" fill="#ffffff" opacity="0.8" />
+</svg>

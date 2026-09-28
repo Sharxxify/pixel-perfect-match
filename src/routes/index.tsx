@@ -14,6 +14,7 @@ import {
   YAxis,
 } from "recharts";
 
+import { useQuery } from "@tanstack/react-query";
 import { PageHeader } from "@/components/aqua/AppShell";
 import { QUALITY_STYLES, QualityBadge, SectionCard, StatCard } from "@/components/aqua/quality";
 import {
@@ -24,6 +25,7 @@ import {
   qualityCounts,
 } from "@/lib/mock-data";
 import { chartTooltipStyle } from "@/lib/chart-style";
+import { getOverview, getHistory } from "@/services/api";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,34 +34,51 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Live overview of 12 monitored water sources with AI quality classification, donut breakdown, recent measurements and critical alerts.",
+          "Live overview of monitored Indian water sources with AI quality classification, donut breakdown, recent measurements and critical alerts.",
       },
       { property: "og:title", content: "AquaSense — AI Water Quality Monitoring" },
       {
         property: "og:description",
         content:
-          "Monitor dissolved oxygen, pH, BOD, nitrate and coliform levels with XGBoost and Random Forest classification.",
+          "Monitor dissolved oxygen, pH, BOD, nitrate and coliform levels with XGBoost and Random Forest classification on CPCB water quality data.",
       },
     ],
   }),
   component: Dashboard,
 });
 
-const donut = [
+const defaultDonut = [
   { name: "Good", value: qualityCounts.Good },
   { name: "Moderate", value: qualityCounts.Moderate },
   { name: "Poor", value: qualityCounts.Poor },
 ] as const;
 
 function Dashboard() {
-  const total = mockWaterSources.length;
+  const { data: overviewRes } = useQuery({
+    queryKey: ["overview"],
+    queryFn: getOverview,
+    staleTime: 60_000,
+  });
+
+  const { data: historyRes } = useQuery({
+    queryKey: ["history"],
+    queryFn: getHistory,
+    staleTime: 60_000,
+  });
+
+  const overview = overviewRes?.data;
+  const historyData = historyRes?.data ?? mockHistory;
+  const total = overview?.totalSamples ?? mockWaterSources.length;
+  const counts = overview?.qualityCounts ?? qualityCounts;
+  const donutData = overview?.donut ?? defaultDonut;
+  const measurements = overview?.measurements ?? mockMeasurements;
   const critical = mockAlerts.filter((a) => a.severity === "Critical").length;
 
   return (
     <>
       <PageHeader
         title="Monitoring Dashboard"
-        description="Real-time water quality classification across the sensor network, powered by an XGBoost + Random Forest ensemble."
+        description="Real-time water quality classification across CPCB India monitoring network (water_dataX.csv), powered by an XGBoost + Random Forest ensemble."
         actions={
           <Link
             to="/analysis"
@@ -73,29 +92,29 @@ function Dashboard() {
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
-          label="Monitored sources"
-          value={total}
-          sub="Rivers, lakes, canals & borewells"
+          label="Dataset Samples"
+          value={total.toLocaleString()}
+          sub={`${overview?.uniqueStations ?? 666} Indian stations (${overview?.yearsRange ?? "2003–2014"})`}
           icon={<Gauge className="size-5" />}
         />
         <StatCard
           label="Good quality"
-          value={qualityCounts.Good}
-          sub={`${Math.round((qualityCounts.Good / total) * 100)}% of network`}
+          value={counts.Good.toLocaleString()}
+          sub={`${Math.round((counts.Good / total) * 100)}% of classified samples`}
           accent="Good"
           icon={<ShieldCheck className="size-5" />}
         />
         <StatCard
           label="Moderate quality"
-          value={qualityCounts.Moderate}
-          sub="Needs treatment review"
+          value={counts.Moderate.toLocaleString()}
+          sub={`${Math.round((counts.Moderate / total) * 100)}% of classified samples`}
           accent="Moderate"
           icon={<TriangleAlert className="size-5" />}
         />
         <StatCard
           label="Poor quality"
-          value={qualityCounts.Poor}
-          sub={`${critical} critical alerts open`}
+          value={counts.Poor.toLocaleString()}
+          sub={`${Math.round((counts.Poor / total) * 100)}% of classified samples`}
           accent="Poor"
           icon={<AlertTriangle className="size-5" />}
         />
@@ -110,7 +129,7 @@ function Dashboard() {
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
-                  data={donut as unknown as { name: string; value: number }[]}
+                  data={donutData as unknown as { name: string; value: number }[]}
                   dataKey="value"
                   nameKey="name"
                   innerRadius="58%"
@@ -118,8 +137,8 @@ function Dashboard() {
                   paddingAngle={3}
                   stroke="none"
                 >
-                  {donut.map((d) => (
-                    <Cell key={d.name} fill={QUALITY_STYLES[d.name].hex} />
+                  {donutData.map((d) => (
+                    <Cell key={d.name} fill={QUALITY_STYLES[d.name as QualityClass].hex} />
                   ))}
                 </Pie>
                 <Tooltip {...chartTooltipStyle} />
@@ -131,12 +150,12 @@ function Dashboard() {
 
         <SectionCard
           title="Network trend"
-          description="Mean dissolved oxygen vs BOD across all stations"
+          description="Yearly mean dissolved oxygen vs BOD across Indian stations (2003–2014)"
           className="lg:col-span-2"
         >
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={mockHistory} margin={{ left: -18, right: 8, top: 8 }}>
+              <AreaChart data={historyData} margin={{ left: -18, right: 8, top: 8 }}>
                 <defs>
                   <linearGradient id="doFill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="var(--primary)" stopOpacity={0.5} />
@@ -177,7 +196,7 @@ function Dashboard() {
       <div className="grid gap-4 lg:grid-cols-3">
         <SectionCard
           title="Recent measurements"
-          description="Latest classified samples from the field sondes"
+          description="Classified station records from water_dataX.csv"
           className="lg:col-span-2"
         >
           <div className="-mx-2 overflow-x-auto">
@@ -194,7 +213,7 @@ function Dashboard() {
                 </tr>
               </thead>
               <tbody>
-                {mockMeasurements.map((m) => (
+                {measurements.slice(0, 8).map((m) => (
                   <tr key={m.id} className="border-t border-border/70">
                     <td className="px-2 py-3">
                       <p className="font-medium">{m.source}</p>

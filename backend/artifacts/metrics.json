@@ -1,0 +1,334 @@
+[
+  {
+    "name": "XGBoost",
+    "accuracy": 0.972,
+    "precision": 0.973,
+    "recall": 0.972,
+    "f1": 0.972,
+    "trainedOn": "1,991 samples \u00b7 CPCB India Water Quality",
+    "latencyMs": 1,
+    "confusion": [
+      [
+        137,
+        2,
+        0
+      ],
+      [
+        2,
+        211,
+        1
+      ],
+      [
+        0,
+        6,
+        40
+      ]
+    ],
+    "classReport": [
+      {
+        "label": "Good",
+        "precision": 0.986,
+        "recall": 0.986,
+        "f1": 0.986,
+        "support": 139
+      },
+      {
+        "label": "Moderate",
+        "precision": 0.963,
+        "recall": 0.986,
+        "f1": 0.975,
+        "support": 214
+      },
+      {
+        "label": "Poor",
+        "precision": 0.976,
+        "recall": 0.87,
+        "f1": 0.92,
+        "support": 46
+      }
+    ],
+    "featureImportance": [
+      {
+        "feature": "Fecal_Coliform",
+        "importance": 0.3190000057220459
+      },
+      {
+        "feature": "Total_Coliform",
+        "importance": 0.17399999499320984
+      },
+      {
+        "feature": "BOD",
+        "importance": 0.15299999713897705
+      },
+      {
+        "feature": "DO",
+        "importance": 0.12300000339746475
+      },
+      {
+        "feature": "Nitrate_Nitrite",
+        "importance": 0.0729999989271164
+      },
+      {
+        "feature": "Conductivity",
+        "importance": 0.06599999964237213
+      },
+      {
+        "feature": "pH",
+        "importance": 0.05900000035762787
+      },
+      {
+        "feature": "Temperature",
+        "importance": 0.032999999821186066
+      }
+    ]
+  },
+  {
+    "name": "Random Forest",
+    "accuracy": 0.965,
+    "precision": 0.967,
+    "recall": 0.965,
+    "f1": 0.965,
+    "trainedOn": "1,991 samples \u00b7 CPCB India Water Quality",
+    "latencyMs": 1,
+    "confusion": [
+      [
+        133,
+        6,
+        0
+      ],
+      [
+        1,
+        213,
+        0
+      ],
+      [
+        0,
+        7,
+        39
+      ]
+    ],
+    "classReport": [
+      {
+        "label": "Good",
+        "precision": 0.993,
+        "recall": 0.957,
+        "f1": 0.974,
+        "support": 139
+      },
+      {
+        "label": "Moderate",
+        "precision": 0.942,
+        "recall": 0.995,
+        "f1": 0.968,
+        "support": 214
+      },
+      {
+        "label": "Poor",
+        "precision": 1.0,
+        "recall": 0.848,
+        "f1": 0.918,
+        "support": 46
+      }
+    ],
+    "featureImportance": [
+      {
+        "feature": "Fecal_Coliform",
+        "importance": 0.251
+      },
+      {
+        "feature": "Total_Coliform",
+        "importance": 0.23
+      },
+      {
+        "feature": "DO",
+        "importance": 0.142
+      },
+      {
+        "feature": "BOD",
+        "importance": 0.142
+      },
+      {
+        "feature": "Nitrate_Nitrite",
+        "importance": 0.085
+      },
+      {
+        "feature": "Conductivity",
+        "importance": 0.074
+      },
+      {
+        "feature": "pH",
+        "importance": 0.043
+      },
+      {
+        "feature": "Temperature",
+        "importance": 0.034
+      }
+    ]
+  },
+  {
+    "name": "Decision Tree",
+    "accuracy": 0.93,
+    "precision": 0.936,
+    "recall": 0.93,
+    "f1": 0.931,
+    "trainedOn": "1,991 samples \u00b7 CPCB India Water Quality",
+    "latencyMs": 1,
+    "confusion": [
+      [
+        136,
+        3,
+        0
+      ],
+      [
+        5,
+        194,
+        15
+      ],
+      [
+        0,
+        5,
+        41
+      ]
+    ],
+    "classReport": [
+      {
+        "label": "Good",
+        "precision": 0.965,
+        "recall": 0.978,
+        "f1": 0.971,
+        "support": 139
+      },
+      {
+        "label": "Moderate",
+        "precision": 0.96,
+        "recall": 0.907,
+        "f1": 0.933,
+        "support": 214
+      },
+      {
+        "label": "Poor",
+        "precision": 0.732,
+        "recall": 0.891,
+        "f1": 0.804,
+        "support": 46
+      }
+    ],
+    "featureImportance": [
+      {
+        "feature": "Fecal_Coliform",
+        "importance": 0.417
+      },
+      {
+        "feature": "BOD",
+        "importance": 0.273
+      },
+      {
+        "feature": "Total_Coliform",
+        "importance": 0.104
+      },
+      {
+        "feature": "DO",
+        "importance": 0.068
+      },
+      {
+        "feature": "Conductivity",
+        "importance": 0.053
+      },
+      {
+        "feature": "Nitrate_Nitrite",
+        "importance": 0.043
+      },
+      {
+        "feature": "pH",
+        "importance": 0.023
+      },
+      {
+        "feature": "Temperature",
+        "importance": 0.019
+      }
+    ]
+  },
+  {
+    "name": "Logistic Regression",
+    "accuracy": 0.501,
+    "precision": 0.529,
+    "recall": 0.501,
+    "f1": 0.492,
+    "trainedOn": "1,991 samples \u00b7 CPCB India Water Quality",
+    "latencyMs": 1,
+    "confusion": [
+      [
+        87,
+        49,
+        3
+      ],
+      [
+        114,
+        77,
+        23
+      ],
+      [
+        5,
+        5,
+        36
+      ]
+    ],
+    "classReport": [
+      {
+        "label": "Good",
+        "precision": 0.422,
+        "recall": 0.626,
+        "f1": 0.504,
+        "support": 139
+      },
+      {
+        "label": "Moderate",
+        "precision": 0.588,
+        "recall": 0.36,
+        "f1": 0.446,
+        "support": 214
+      },
+      {
+        "label": "Poor",
+        "precision": 0.581,
+        "recall": 0.783,
+        "f1": 0.667,
+        "support": 46
+      }
+    ],
+    "featureImportance": [
+      {
+        "feature": "BOD",
+        "importance": 0.614
+      },
+      {
+        "feature": "DO",
+        "importance": 0.166
+      },
+      {
+        "feature": "Nitrate_Nitrite",
+        "importance": 0.095
+      },
+      {
+        "feature": "Temperature",
+        "importance": 0.044
+      },
+      {
+        "feature": "Total_Coliform",
+        "importance": 0.028
+      },
+      {
+        "feature": "Fecal_Coliform",
+        "importance": 0.024
+      },
+      {
+        "feature": "pH",
+        "importance": 0.016
+      },
+      {
+        "feature": "Conductivity",
+        "importance": 0.012
+      }
+    ]
+  }
+]

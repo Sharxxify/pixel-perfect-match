@@ -10,12 +10,17 @@ import {
   mockExplain,
   mockModels,
   mockWaterSources,
+  mockHistory,
+  mockFeatureImportance,
   type AnalysisResult,
   type ModelMetrics,
   type ShapContribution,
   type WaterParameters,
   type WaterSource,
+  type HistoryPoint,
+  type Measurement,
 } from "@/lib/mock-data";
+import csvData from "@/data/csvData.json";
 
 export const API_BASE_URL =
   (import.meta.env["VITE_API_BASE_URL"] as string | undefined) ?? "http://localhost:8000";
@@ -25,6 +30,32 @@ export type ApiSource = "backend" | "demo";
 export type ApiResponse<T> = {
   data: T;
   source: ApiSource;
+};
+
+export type OverviewData = {
+  totalSamples: number;
+  uniqueStations: number;
+  uniqueStates: number;
+  yearsRange: string;
+  qualityCounts: { Good: number; Moderate: number; Poor: number };
+  donut: { name: string; value: number }[];
+  measurements: Measurement[];
+  potability?: {
+    total: number;
+    potable: number;
+    nonPotable: number;
+    potablePercent: number;
+    avgPh: number;
+    avgHardness: number;
+    avgTurbidity: number;
+    avgSolids: number;
+  };
+};
+
+export type FeatureImportanceItem = {
+  feature: string;
+  xgboost: number;
+  randomForest: number;
 };
 
 const TIMEOUT_MS = 3500;
@@ -100,5 +131,38 @@ export async function getModels(): Promise<ApiResponse<ModelMetrics[]>> {
     return { data, source: "backend" };
   } catch {
     return { data: mockModels, source: "demo" };
+  }
+}
+
+/** GET /history */
+export async function getHistory(): Promise<ApiResponse<HistoryPoint[]>> {
+  try {
+    const data = await request<HistoryPoint[]>("/history");
+    return { data, source: "backend" };
+  } catch {
+    return { data: (csvData.history as HistoryPoint[]) ?? mockHistory, source: "demo" };
+  }
+}
+
+/** GET /overview */
+export async function getOverview(): Promise<ApiResponse<OverviewData>> {
+  try {
+    const data = await request<OverviewData>("/overview");
+    return { data, source: "backend" };
+  } catch {
+    return { data: csvData.overview as unknown as OverviewData, source: "demo" };
+  }
+}
+
+/** GET /feature-importance */
+export async function getFeatureImportance(): Promise<ApiResponse<FeatureImportanceItem[]>> {
+  try {
+    const data = await request<FeatureImportanceItem[]>("/feature-importance");
+    return { data, source: "backend" };
+  } catch {
+    return {
+      data: (csvData.featureImportance as FeatureImportanceItem[]) ?? mockFeatureImportance,
+      source: "demo",
+    };
   }
 }

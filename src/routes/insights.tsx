@@ -11,10 +11,12 @@ import {
   YAxis,
 } from "recharts";
 
+import { useQuery } from "@tanstack/react-query";
 import { PageHeader } from "@/components/aqua/AppShell";
 import { SectionCard } from "@/components/aqua/quality";
 import { chartTooltipStyle } from "@/lib/chart-style";
 import { mockFeatureImportance } from "@/lib/mock-data";
+import { getFeatureImportance } from "@/services/api";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -40,25 +42,25 @@ const INSIGHTS = [
     icon: TrendingDown,
     tone: "poor" as const,
     title: "Sewage inflow dominates poor classifications",
-    body: "In 4 of 4 Poor-labelled stations, fecal coliform above 2,000 MPN/100mL contributed the largest negative SHAP value. Disinfection capacity is the highest-leverage intervention.",
+    body: "In Poor-labelled samples, Fecal Coliform (>100 MPN/100mL) accounts for 31.9% of model importance. Disinfection capacity is the highest-leverage intervention.",
   },
   {
     icon: TrendingUp,
     tone: "moderate" as const,
-    title: "Monsoon months degrade every station",
-    body: "June–July readings show DO dropping ~28% and BOD rising ~2.3x versus December. Pre-monsoon aeration upgrades would flatten this seasonal dip.",
+    title: "Organic pollution (BOD) drives moderate shifts",
+    body: "BOD and Dissolved Oxygen represent ~28% combined feature importance in classifying degraded stations. Biological aeration directly reverses this degradation.",
   },
   {
     icon: Lightbulb,
     tone: "good" as const,
-    title: "Reservoirs remain the safest supply",
-    body: "Osman Sagar and Himayat Sagar hold ideal ranges on all eight parameters, with ensemble confidence above 96%. Prioritise them for drinking-water offtake.",
+    title: "Reservoirs and upland rivers stay cleanest",
+    body: "Upland monitoring locations maintain DO > 7 mg/L and BOD < 2 mg/L, achieving over 97% confidence in Good water quality status.",
   },
   {
     icon: BrainCircuit,
     tone: "primary" as const,
-    title: "Models disagree mostly at the Good/Moderate edge",
-    body: "Random Forest leans Moderate when DO sits between 5 and 6 mg/L. Treat split verdicts in that band as Moderate until a manual lab test resolves them.",
+    title: "Ensemble feature consensus",
+    body: "Both XGBoost and Random Forest agree on the top 4 predictive drivers: Fecal Coliform, Total Coliform, BOD, and Dissolved Oxygen.",
   },
 ];
 
@@ -70,11 +72,19 @@ const toneClass = {
 };
 
 function InsightsPage() {
+  const { data: fiRes } = useQuery({
+    queryKey: ["feature-importance"],
+    queryFn: getFeatureImportance,
+    staleTime: 60_000,
+  });
+
+  const featureImportanceData = fiRes?.data ?? mockFeatureImportance;
+
   return (
     <>
       <PageHeader
         title="AI Insights"
-        description="Aggregated explanations from the ensemble across all stations and historical samples."
+        description="Aggregated explanations from XGBoost and Random Forest trained on CPCB India water quality data."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -95,12 +105,12 @@ function InsightsPage() {
 
       <SectionCard
         title="Global feature importance"
-        description="Averaged gain across the full training set for both models"
+        description="Trained feature weights from water_dataX.csv across XGBoost and Random Forest"
       >
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              data={mockFeatureImportance}
+              data={featureImportanceData}
               layout="vertical"
               margin={{ left: 40, right: 16, top: 8 }}
             >
